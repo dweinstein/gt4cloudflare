@@ -2,7 +2,7 @@
 
 A [Glamorous Toolkit](https://gtoolkit.com) client for the [Cloudflare Browser Rendering REST API](https://developers.cloudflare.com/browser-rendering/rest-api/).
 
-Render pages, scrape content, extract structured data with AI, discover links, take screenshots, generate PDFs, and crawl websites — all from GT with rich inspector views.
+Render pages, scrape content, extract structured data with AI, discover links, take screenshots, generate PDFs, and crawl websites -- all from GT with rich inspector views.
 
 ## Endpoints
 
@@ -91,7 +91,4 @@ After installing with Metacello:
 #BaselineOfGt4cloudflare asClass loadLepiter
 ```
 
-This loads three documentation pages:
-- **Gt4Cloudflare - Browser Rendering API Client** — setup, endpoint docs, architecture, live examples
-- **Gt4Cloudflare - API Reference** — full API specs for all endpoints
-- **Gt4Cloudflare - Playground** — runnable snippets for experimentation
+This loads the **Getting Started with Gt4Cloudflare** Lepiter page, a walkthrough covering setup, every endpoint with runnable examples, tips, and embedded live example objects.
