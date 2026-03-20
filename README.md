@@ -3,9 +3,9 @@
 
 ```st
 Metacello new
-	repository: '';
-	baseline: 'Gt4cloudflare';
-	load
+    baseline: 'Gt4Cloudflare';
+    repository: 'github://dweinstein/gt4cloudflare/src';
+    load.
 ```
 
 ## Load Lepiter
