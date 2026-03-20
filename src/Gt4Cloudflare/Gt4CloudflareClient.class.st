@@ -412,7 +412,7 @@ Gt4CloudflareClient >> scrapeUrl: aUrl elements: anArrayOfSelectors [
 	entity at: 'elements' put: (anArrayOfSelectors collect: [ :sel |
 		{ 'selector' -> sel } asDictionary ]).
 	response := self post: 'scrape' withEntity: entity.
-	^ Gt4CloudflareScrapeResult fromDictionary: response
+	^ (Gt4CloudflareScrapeResult fromDictionary: response) url: aUrl
 ]
 
 { #category : 'api - scrape' }
@@ -424,7 +424,7 @@ Gt4CloudflareClient >> scrapeUrl: aUrl elements: anArrayOfSelectors options: aDi
 	entity at: 'elements' put: (anArrayOfSelectors collect: [ :sel |
 		{ 'selector' -> sel } asDictionary ]).
 	response := self post: 'scrape' withEntity: entity.
-	^ Gt4CloudflareScrapeResult fromDictionary: response
+	^ (Gt4CloudflareScrapeResult fromDictionary: response) url: aUrl
 ]
 
 { #category : 'api - screenshot' }

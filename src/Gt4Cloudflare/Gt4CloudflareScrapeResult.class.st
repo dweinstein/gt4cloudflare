@@ -8,7 +8,8 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'rawData',
-		'elements'
+		'elements',
+		'url'
 	],
 	#category : 'Gt4Cloudflare',
 	#package : 'Gt4Cloudflare'
@@ -60,8 +61,11 @@ Gt4CloudflareScrapeResult >> gtRawDataFor: aView [
 { #category : 'printing' }
 Gt4CloudflareScrapeResult >> printOn: aStream [
 	super printOn: aStream.
+	aStream nextPutAll: ' ('.
+	url ifNotNil: [
+		aStream nextPutAll: (url truncateWithElipsisTo: 40).
+		aStream nextPutAll: ', ' ].
 	aStream
-		nextPutAll: ' (';
 		print: (elements ifNil: [ 0 ] ifNotNil: [ elements size ]);
 		nextPutAll: ' selectors)'
 ]
@@ -74,4 +78,14 @@ Gt4CloudflareScrapeResult >> rawData [
 { #category : 'accessing' }
 Gt4CloudflareScrapeResult >> rawData: anObject [
 	rawData := anObject
+]
+
+{ #category : 'accessing' }
+Gt4CloudflareScrapeResult >> url [
+	^ url
+]
+
+{ #category : 'accessing' }
+Gt4CloudflareScrapeResult >> url: anObject [
+	url := anObject
 ]
