@@ -1,8 +1,8 @@
 Class {
 	#name : 'BaselineOfGt4Cloudflare',
 	#superclass : 'BaselineOf',
-	#category : 'BaselineOfGt4cloudflare',
-	#package : 'BaselineOfGt4cloudflare'
+	#category : 'BaselineOfGt4Cloudflare',
+	#package : 'BaselineOfGt4Cloudflare'
 }
 
 { #category : 'loading' }
