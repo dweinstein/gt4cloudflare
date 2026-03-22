@@ -88,7 +88,7 @@ Metacello new
 After installing with Metacello:
 
 ```smalltalk
-#BaselineOfGt4cloudflare asClass loadLepiter
+#BaselineOfGt4Cloudflare asClass loadLepiter
 ```
 
 This loads the **Getting Started with Gt4Cloudflare** Lepiter page, a walkthrough covering setup, every endpoint with runnable examples, tips, and embedded live example objects.
