@@ -138,6 +138,74 @@ Gt4CloudflareExamples >> linksResult [
 	^ aResult
 ]
 
+{ #category : 'examples - markdown' }
+Gt4CloudflareExamples >> markdownErrorResultExample [
+	<gtExample>
+	| result |
+	result := Gt4CloudflareMarkdownFileResult fromDictionary: {
+		'name' -> 'broken.xyz'.
+		'mimeType' -> 'application/octet-stream'.
+		'format' -> 'error'.
+		'tokens' -> 0.
+		'data' -> ''.
+		'error' -> 'Unsupported file format' } asDictionary.
+	self assert: result isError.
+	self assert: result error equals: 'Unsupported file format'.
+	^ result
+]
+
+{ #category : 'examples - markdown' }
+Gt4CloudflareExamples >> markdownFileResultExample [
+	<gtExample>
+	| result |
+	result := Gt4CloudflareMarkdownFileResult fromDictionary: {
+		'name' -> 'document.pdf'.
+		'mimeType' -> 'application/pdf'.
+		'format' -> 'markdown'.
+		'tokens' -> 1234.
+		'data' -> '# Sample Document
+
+This is a sample PDF converted to markdown.
+
+## Section 1
+
+Some content here.' } asDictionary.
+	self assert: result name equals: 'document.pdf'.
+	self assert: result mimeType equals: 'application/pdf'.
+	self assert: result format equals: 'markdown'.
+	self assert: result tokens equals: 1234.
+	self assert: result isError not.
+	^ result
+]
+
+{ #category : 'examples - markdown' }
+Gt4CloudflareExamples >> markdownResultExample [
+	<gtExample>
+	| result |
+	result := Gt4CloudflareMarkdownResult fromDictionary: {
+		'success' -> true.
+		'result' -> {
+			{
+				'name' -> 'report.pdf'.
+				'mimeType' -> 'application/pdf'.
+				'format' -> 'markdown'.
+				'tokens' -> 2500.
+				'data' -> '# Report
+
+Executive summary...' } asDictionary.
+			{
+				'name' -> 'photo.jpeg'.
+				'mimeType' -> 'image/jpeg'.
+				'format' -> 'markdown'.
+				'tokens' -> 150.
+				'data' -> '![Image description](photo.jpeg)
+
+A cat sitting on a windowsill.' } asDictionary } } asDictionary.
+	self assert: result results size equals: 2.
+	self assert: result first name equals: 'report.pdf'.
+	^ result
+]
+
 { #category : 'examples - scrape' }
 Gt4CloudflareExamples >> scrapeElement [
 	<gtExample>

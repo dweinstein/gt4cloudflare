@@ -232,6 +232,8 @@ Gt4CloudflareClient >> gtEndpointsFor: aView [
 			'/crawl' -> 'startCrawl:' -> 'Async multi-page website crawling'.
 			'/screenshot' -> 'screenshotUrl:' -> 'Capture page as PNG image'.
 			'/pdf' -> 'pdfForUrl:' -> 'Generate PDF from page'.
+			'/ai/tomarkdown' -> 'toMarkdownFile:' -> 'Convert files to markdown'.
+			'/ai/tomarkdown/supported' -> 'supportedMarkdownFormats' -> 'List supported file formats'.
 			'/tokens/verify' -> 'verifyToken' -> 'Check API token validity' } ];
 		column: 'Path' text: [ :item | item key key ] weight: 2;
 		column: 'Method' text: [ :item | item key value ] weight: 3;
@@ -378,6 +380,27 @@ Gt4CloudflareClient >> postBinary: anEndpoint withEntity: aDictionary [
 ]
 
 { #category : 'private' }
+Gt4CloudflareClient >> postMultipart: anEndpoint withFiles: aCollectionOfFileReferences options: anOptionsDictOrNil [
+	"POST multipart form data with file uploads"
+	| aClient entity url response |
+	aClient := ZnClient new.
+	aClient timeout: 120.
+	aClient setBearerAuthentication: apiKey.
+	url := baseUrl / 'accounts' / accountId / anEndpoint.
+	aClient url: url.
+	entity := ZnMultiPartFormDataEntity new.
+	aCollectionOfFileReferences do: [ :fileRef |
+		entity addPart: (ZnMimePart fieldName: 'files' fileNamed: fileRef fullName) ].
+	anOptionsDictOrNil ifNotNil: [ :opts |
+		entity addPart: (ZnMimePart fieldName: 'conversionOptions' value: (NeoJSONWriter toString: opts)) ].
+	aClient entity: entity.
+	aClient post.
+	history add: aClient request -> aClient response.
+	response := NeoJSONReader fromString: aClient contents.
+	^ self checkForErrors: response
+]
+
+{ #category : 'private' }
 Gt4CloudflareClient >> postRaw: anEndpoint withEntity: aDictionary [
 	"POST returning raw response (for screenshot, pdf, content)"
 	| aClient |
@@ -463,6 +486,47 @@ Gt4CloudflareClient >> startCrawl: aUrl options: aDictionary [
 		jobId: (response at: 'result');
 		status: 'running';
 		rawData: response
+]
+
+{ #category : 'api - markdown' }
+Gt4CloudflareClient >> supportedMarkdownFormats [
+	"GET supported file formats for markdown conversion.
+	Returns an array of dictionaries with extension and mimeType."
+	| aClient response |
+	aClient := self initializeClient.
+	aClient url: baseUrl / 'accounts' / accountId / 'ai' / 'tomarkdown' / 'supported'.
+	aClient entity: nil.
+	response := aClient get.
+	history add: aClient request -> aClient response.
+	^ (self checkForErrors: response) at: 'result'
+]
+
+{ #category : 'api - markdown' }
+Gt4CloudflareClient >> toMarkdownFile: aFileReference [
+	"Convert a single file to markdown. Returns a Gt4CloudflareMarkdownResult."
+	^ self toMarkdownFiles: { aFileReference asFileReference }
+]
+
+{ #category : 'api - markdown' }
+Gt4CloudflareClient >> toMarkdownFiles: aCollectionOfFileReferences [
+	"Convert multiple files to markdown. Returns a Gt4CloudflareMarkdownResult."
+	^ self toMarkdownFiles: aCollectionOfFileReferences options: nil
+]
+
+{ #category : 'api - markdown' }
+Gt4CloudflareClient >> toMarkdownFiles: aCollectionOfFileReferences options: anOptionsDictOrNil [
+	"Convert files to markdown with optional conversionOptions.
+	Options can include:
+	  image -> descriptionLanguage (en, it, de, es, fr, pt)
+	  html -> hostname, cssSelector
+	  pdf -> metadata (boolean)
+	Returns a Gt4CloudflareMarkdownResult."
+	| response |
+	response := self
+		postMultipart: 'ai/tomarkdown'
+		withFiles: (aCollectionOfFileReferences collect: #asFileReference)
+		options: anOptionsDictOrNil.
+	^ Gt4CloudflareMarkdownResult fromDictionary: response
 ]
 
 { #category : 'api - auth' }

@@ -864,6 +864,179 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:05:17.028941-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:05:17.028941-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "VvrIHI6kS3CDVfW5+PNXRA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# 9. Markdown Conversion (`/ai/tomarkdown`)\n\nConvert files (PDF, images, HTML, Word, Excel, and more) to Markdown using Cloudflare Workers AI. Your API token needs **Workers AI - Read** permission.\n\nSubmit one or more local files and get back structured markdown with metadata and token counts. Inspect the result to see each file's converted content."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:04.587127-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:04.587127-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "h2YB+6+DS+uYprFxcrcPcg=="
+				},
+				"code" : "\"Convert a single PDF\"\nclient toMarkdownFile: '/path/to/document.pdf' asFileReference."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.274233-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.274233-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BYP7yeM1RgScGAOEGzaDNw=="
+				},
+				"code" : "\"Convert multiple files at once\"\nclient toMarkdownFiles: {\n\t'/path/to/report.pdf' asFileReference.\n\t'/path/to/photo.jpeg' asFileReference }."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.276278-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.276278-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "/jVktxNCTlK6yAxmbjkp9Q=="
+				},
+				"code" : "\"With conversion options (e.g. PDF metadata, image description language)\"\nclient toMarkdownFiles: { '/path/to/file.pdf' asFileReference }\n\toptions: {\n\t\t'pdf' -> { 'metadata' -> true } asDictionary.\n\t\t'image' -> { 'descriptionLanguage' -> 'en' } asDictionary\n\t} asDictionary."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.277329-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-04T22:06:11.277329-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "z3Ga2gN8QzyiYKhAu9/X7g=="
+				},
+				"code" : "\"List all supported file formats\"\nclient supportedMarkdownFormats."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2026-03-19T21:33:11.857851-04:00"
 					}
 				},
