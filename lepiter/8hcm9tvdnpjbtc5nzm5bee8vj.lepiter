@@ -1,0 +1,847 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:15.150242-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:15.150242-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "OBAUjI9fS2CA0g4WQNJ/4g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The {{gtPackage:Gt4Cloudflare}} package includes a **webhook hosting service** built on Cloudflare Workers. It deploys a JavaScript Worker to Cloudflare's edge network that receives HTTP webhooks, optionally verifies HMAC-SHA256 signatures, and stores events in Workers KV for later retrieval from GT.\n\nThis is useful for receiving webhooks from services like Storylane, Salesforce, GitHub, etc. without running a local server — the Worker runs 24/7 on Cloudflare's global network."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:20.530903-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:20.530903-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "SIuhCXalTZ27dH5RdZg43g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Setup\n\nYou need a Cloudflare account with Workers enabled (free tier is fine — 100k requests/day). Get your API token from the Cloudflare dashboard with **Workers Scripts** and **Workers KV Storage** permissions. Save it to `~/.secrets/cloudflare-api-key.txt`. You also need your **Account ID** (visible on the Workers dashboard)."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:24.205038-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:24.205038-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "n+uIULLFSYWJIYCigXWj9w=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Quick Start: Deploy a Webhook Worker"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:28.223999-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:28.223999-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "FZdKPBfYSd+auZcTCdfhgA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Create a {{gtClass:Gt4CloudflareWorkersClient}}, then use {{gtClass:Gt4CloudflareWebhookWorker}} to deploy with a single message:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:34.046866-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:34.046866-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "9IS/yZufSzC1SDxJ+Ak1aQ=="
+				},
+				"code" : "\"1. Create a Workers client\"\nclient := Gt4CloudflareWorkersClient withApiKeyFromFile\n\taccountId: 'YOUR_ACCOUNT_ID'.\n\n\"2. Create and deploy a webhook Worker\"\nwebhook := (Gt4CloudflareWebhookWorker\n\tclient: client\n\tscriptName: 'storylane-webhook'\n\tsecret: 'your-shared-secret')\n\tdeploy.\n\n\"3. Your webhook is now live!\"\nwebhook publicUrl.\n\"=> 'https://storylane-webhook.your-subdomain.workers.dev'\""
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:41.753672-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:41.753672-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hCuJJSBPQcys8f79ViGkrA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "The `deploy` method does three things automatically:\n1. Creates a **KV namespace** (e.g. `storylane-webhook-events`) to store incoming events\n2. Uploads the **webhook handler Worker** script with KV + secret bindings\n3. Enables the **workers.dev subdomain** so the Worker gets a public URL\n\nCopy the `publicUrl` and paste it into your webhook provider's configuration (e.g. Storylane settings)."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.335479-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.335479-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "kLrCrrH/TYybrY3y8k8WfQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Retrieving Events\n\nOnce webhooks are flowing, retrieve them from KV as rich {{gtClass:Gt4CloudflareWebhookEvent}} objects:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.365498-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.365498-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hia7NvpzTdKrlOAt/w8IFQ=="
+				},
+				"code" : "\"Fetch all stored events (newest first in the GT inspector)\"\nevents := webhook fetchEvents.\n\n\"Inspect a single event\"\nevent := events items first.\nevent timestamp.    \"=> '2025-04-10T14:30:00.000Z'\"\nevent method.       \"=> 'POST'\"\nevent sourceIp.     \"=> '203.0.113.42'\"\nevent headers.      \"=> a Dictionary with all HTTP headers\"\nevent body.         \"=> the raw webhook payload string\"\nevent parsedBody.   \"=> parsed JSON dictionary (if body is JSON)\""
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.386608-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:20:53.386608-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Ag0+xnJGQ6CwKjmi3A8gpw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Each event stores the full HTTP request: method, URL, path, all headers, the raw body, and the source IP (via Cloudflare's `cf-connecting-ip` header). Events are stored with a **30-day TTL** in KV automatically."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:03.827849-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:03.827849-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "YEViiSfbREKo7+aST+1jcA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Integration with Storylane\n\nTo use as a Storylane webhook endpoint:\n1. Deploy the webhook Worker with the same shared secret configured in Storylane\n2. Copy the `publicUrl` and paste it into **Storylane > Settings > Webhooks > URL**\n3. Set the shared secret in Storylane to match the `secret:` you passed during deploy\n4. The Worker automatically verifies `x-storylane-signature` headers using HMAC-SHA256\n\nThe events stored in KV contain the full Storylane payload in `body` — use `parsedBody` to access fields like lead email, company name, completion percentage, etc."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:03.860412-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:03.860412-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "2ldrGbSHRAOLsK5cs6TDpQ=="
+				},
+				"code" : "\"Example: Processing Storylane webhook events\"\nevents := webhook fetchEvents.\nevents items do: [ :event |\n\t| payload |\n\tpayload := event parsedBody.\n\tTranscript\n\t\tshow: (payload at: 'name' ifAbsent: [ 'unknown' ]);\n\t\tshow: ' — ';\n\t\tshow: ((payload at: 'lead' ifAbsent: [ nil ])\n\t\t\tifNil: [ 'anonymous' ]\n\t\t\tifNotNil: [ :lead | lead at: 'email' ifAbsent: [ '?' ] ]);\n\t\tcr ]"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.261751-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.261751-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "+60lC70USQGpMFYPUvw0+Q=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Signature Verification\n\nThe Worker supports HMAC-SHA256 signature verification for multiple webhook providers. When a `secret` is configured, the Worker checks these headers (in order):\n- `x-storylane-signature` (Storylane)\n- `x-hub-signature-256` (GitHub)\n- `x-webhook-signature` (generic)\n\nIf a secret is set and no valid signature header is present, the Worker returns **401 Unauthorized**. Without a secret, all POST requests are accepted (useful for development)."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.276069-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.276069-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "UB5na7kxTyGBftabAfG4OA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Managing the Worker\n\nThe {{gtClass:Gt4CloudflareWebhookWorker}} provides actions in the GT inspector toolbar: **Deploy** (play button) and **Teardown** (cancel button). You can also manage programmatically:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.314503-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:13.314503-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "cbl8lfDdRpuEwMpgO+KRqg=="
+				},
+				"code" : "\"Clear all stored events\"\nwebhook clearEvents.\n\n\"Check how many events are stored\"\nwebhook eventCount.\n\n\"Teardown: delete the Worker script and KV namespace\"\nwebhook teardown."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.351624-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.351624-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "oD7qxD6GSlSDMtqJdcqQ4w=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Low-Level Workers API\n\nThe {{gtClass:Gt4CloudflareWorkersClient}} also exposes the full Cloudflare Workers REST API for direct use:"
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.366753-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.366753-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "JIuNfFLyRnCwcjbskqBacQ=="
+				},
+				"code" : "client := Gt4CloudflareWorkersClient withApiKeyFromFile\n\taccountId: 'YOUR_ACCOUNT_ID'.\n\n\"List all Worker scripts\"\nclient listScripts.\n\n\"Upload a custom Worker script\"\nclient uploadScript: 'my-worker' code: 'export default { async fetch(req) { return new Response(\"hello\"); } }'.\n\n\"Manage KV namespaces\"\nclient listKvNamespaces.\nns := client createKvNamespace: 'my-store'.\nclient kvPut: 'key1' value: 'hello world' namespace: ns id.\nclient kvGet: 'key1' namespace: ns id.\n\n\"Get the workers.dev subdomain\"\nclient getSubdomain.\nclient scriptUrl: 'my-worker'."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.388678-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:25.388678-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hKgU79I5TImCXpFuhjvxgg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Worker HTTP Endpoints\n\nThe deployed webhook Worker exposes these endpoints:\n\n| Method | Path | Description |\n| --- | --- | --- |\n| POST | `/` | Receive a webhook event (stores in KV, verifies signature if secret set) |\n| GET | `/events` | List all stored events as JSON array (newest first, max 100) |\n| GET | `/events/{key}` | Retrieve a single event by its KV key |\n| GET | `/health` | Health check returning `{ \"status\": \"ok\" }` |"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:29.978219-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:29.978219-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "KYfh7iTDQcGUhwms+dZ7IQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Offline Examples\n\nThe following examples work without any live API calls — they use inline JSON fixtures. Inspect them to explore the GT views on each model object."
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.375317-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.375317-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "oiEUTTimSGWmv49Gq6rNvA=="
+				},
+				"exampleSelector" : "webhookWorker",
+				"previewHeight" : 300,
+				"previewShowSelector" : "gtViewsFor:",
+				"exampleBehaviorName" : "Gt4CloudflareWorkersExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : true,
+				"noCode" : false
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.379163-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.379163-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "RCvaX5WxRyiKYX9j7km06A=="
+				},
+				"exampleSelector" : "webhookEvents",
+				"previewHeight" : 250,
+				"previewShowSelector" : "gtViewsFor:",
+				"exampleBehaviorName" : "Gt4CloudflareWorkersExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : true,
+				"noCode" : false
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.381173-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:38.381173-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "P82XNlwtQxiriRV7jd5tXQ=="
+				},
+				"exampleSelector" : "webhookEvent",
+				"previewHeight" : 350,
+				"previewShowSelector" : "gtViewsFor:",
+				"exampleBehaviorName" : "Gt4CloudflareWorkersExamples",
+				"codeExpanded" : true,
+				"previewExpanded" : true,
+				"noCode" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:45.287999-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:21:45.287999-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "5z+TNuGpSFimCOa/bRSFMg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Architecture\n\nThe webhook service is built from these classes:\n\n- {{gtClass:Gt4CloudflareWorkersClient}} — REST client for the Cloudflare Workers API (scripts, KV, subdomain)\n- {{gtClass:Gt4CloudflareWebhookWorker}} — High-level manager that deploys a webhook-receiving Worker + KV store\n- {{gtClass:Gt4CloudflareWorkerScript}} / {{gtClass:Gt4CloudflareWorkerScripts}} — Worker script metadata models\n- {{gtClass:Gt4CloudflareKvNamespace}} / {{gtClass:Gt4CloudflareKvNamespaces}} — KV namespace models with key operations\n- {{gtClass:Gt4CloudflareKvEntry}} — Single KV key/value entry\n- {{gtClass:Gt4CloudflareWebhookEvent}} / {{gtClass:Gt4CloudflareWebhookEvents}} — Webhook event models parsed from KV\n- {{gtClass:Gt4CloudflareWorkersExamples}} — Fixture-based offline examples"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-04-16T22:20:15.143821-04:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-04-16T22:20:15.143821-04:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Cloudflare Workers Webhook Service"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "6fce599e-21ee-405d-bd90-7b7bda3d458f"
+	}
+}

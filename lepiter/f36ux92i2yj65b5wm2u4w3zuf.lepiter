@@ -1,0 +1,1174 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:22.073398-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:22.073398-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "hAPaQOpxT5urTUlPJk7d7g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Research into the Cloudflare Workers REST API for programmatic Worker management from a Pharo/Smalltalk HTTP client (no Wrangler CLI). Covers script CRUD, routes, workers.dev subdomain, KV storage, D1 database, and webhook-forwarding patterns.\n\nBase URL: `https://api.cloudflare.com/client/v4`\n\nResearch date: 2026-04-16"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:28.039044-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:28.039044-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "HWpTxN/pQcyjCfyTix1r6g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## Authentication\n\nAll endpoints require a Bearer token header:\n`Authorization: Bearer <CLOUDFLARE_API_TOKEN>`\n\nCreate tokens at the Cloudflare dashboard (Profile > API Tokens). Tokens use a `cfut_` prefix format. Required permissions:\n- **Workers Scripts: Edit** (includes read/list) for script management\n- **Workers KV Storage: Edit** for KV namespace operations\n- **D1: Edit** for D1 database operations\n- **Workers Routes: Edit** for zone-level route management"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:33.801604-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:33.801604-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "V99FTX7HRpSh4v9d1epNqA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 1. Worker Scripts CRUD"
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:39.304202-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:39.304202-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "8TwMNMUOSFqEnPyavRLN6Q=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'Upload/Update Script'. 'PUT'. '/accounts/{account_id}/workers/scripts/{script_name}' }.\r  { 'List Scripts'. 'GET'. '/accounts/{account_id}/workers/scripts' }.\r  { 'Download Script'. 'GET'. '/accounts/{account_id}/workers/scripts/{script_name}' }.\r  { 'Delete Script'. 'DELETE'. '/accounts/{account_id}/workers/scripts/{script_name}' }.\r  { 'Get Script Settings'. 'GET'. '/accounts/{account_id}/workers/scripts/{script_name}/script-settings' }.\r  { 'Update Script Settings'. 'PATCH'. '/accounts/{account_id}/workers/scripts/{script_name}/script-settings' }\r} ].\rview column: 'Operation' text: [ :row | row at: 1 ] weight: 0.3.\rview column: 'Method' text: [ :row | row at: 2 ] weight: 0.1.\rview column: 'Endpoint' text: [ :row | row at: 3 ] weight: 0.6.\rview asElement",
+				"elementHeight" : 220,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:47.733726-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:47.733726-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "KJBv5pX2TvOghGB1T8B6eg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### 1.1 Upload/Update a Worker Script (the key endpoint)\n\n`PUT /accounts/{account_id}/workers/scripts/{script_name}`\n`Content-Type: multipart/form-data`\n\nThis is the primary deployment endpoint. It accepts a **multipart form** with two parts:\n1. **`metadata`** -- JSON string with script configuration (replaces `wrangler.toml`)\n2. **Script file(s)** -- the JavaScript module(s), with the entry point matching `main_module`\n\nOptional query parameter: `bindings_inherit=strict` fails if unresolvable `inherit` bindings exist.\n\n**Response** returns the script metadata: `id`, `etag`, `handlers`, `compatibility_date`, `created_on`, `modified_on`, `usage_model`, `has_modules`, `placement`, `observability`, `tags`, `startup_time_ms`."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:51.543708-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:51.543708-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "WxjTPob0SPGhfPK6Gtdl+Q=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Multipart Metadata JSON Format\n\nThe `metadata` part is a JSON object that configures the Worker. Minimal required field is `main_module`."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:57.196036-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:08:57.196036-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "yaEaRXfhSACgWqVIzDzURw=="
+				},
+				"code" : "\"Example metadata JSON structure\"\n'{\n  \"main_module\": \"main.js\",\n  \"compatibility_date\": \"2024-09-14\",\n  \"compatibility_flags\": [\"nodejs_compat\"],\n  \"bindings\": [\n    { \"type\": \"kv_namespace\", \"name\": \"MY_KV\", \"namespace_id\": \"abc123\" },\n    { \"type\": \"plain_text\", \"name\": \"WEBHOOK_TARGET\", \"text\": \"https://example.com/hook\" },\n    { \"type\": \"secret_text\", \"name\": \"AUTH_TOKEN\", \"text\": \"secret-value\" },\n    { \"type\": \"d1\", \"name\": \"DB\", \"id\": \"database-uuid\" }\n  ]\n}'"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:00.661345-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:00.661345-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "5L9rUxq8STaVyXwVR6jhdA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### All Supported Binding Types"
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:15.004959-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:15.004959-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "UMlkrg3UQbiOeyjB9FDv7g=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'kv_namespace'. 'name, namespace_id'. 'KV storage' }.\r  { 'd1'. 'name, id'. 'D1 SQLite database' }.\r  { 'r2_bucket'. 'name, bucket_name'. 'Object storage' }.\r  { 'plain_text'. 'name, text'. 'Environment variable' }.\r  { 'secret_text'. 'name, text'. 'Encrypted secret' }.\r  { 'service'. 'name, service, environment'. 'Service binding' }.\r  { 'durable_object_namespace'. 'name, class_name'. 'Durable Objects' }.\r  { 'queue'. 'name, queue_name'. 'Queue' }.\r  { 'ai'. 'name'. 'Workers AI' }.\r  { 'analytics_engine'. 'name, dataset'. 'Analytics' }.\r  { 'browser_rendering'. 'name'. 'Browser rendering' }.\r  { 'hyperdrive'. 'name, id'. 'DB connection pooling' }.\r  { 'vectorize'. 'name, index_name'. 'Vector DB' }.\r  { 'mtls_certificate'. 'name, certificate_id'. 'mTLS' }.\r  { 'version_metadata'. 'name'. 'Version info' }.\r  { 'assets'. 'name'. 'Static assets' }\r} ].\rview column: 'type' text: [ :row | row at: 1 ] weight: 0.3.\rview column: 'Required Fields' text: [ :row | row at: 2 ] weight: 0.35.\rview column: 'Purpose' text: [ :row | row at: 3 ] weight: 0.35.\rview asElement",
+				"elementHeight" : 450,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:24.746212-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:24.746212-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "B2WIPOdeQ3+p/NafUF8cog=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### 1.2 List Worker Scripts\n\n`GET /accounts/{account_id}/workers/scripts`\n\nOptional query: `tags` -- comma-separated `tag:yes` / `tag:no` filter.\n\nReturns array of script objects with: `id`, `created_on`, `modified_on`, `etag`, `handlers`, `has_modules`, `compatibility_date`, `compatibility_flags`, `usage_model`, `last_deployed_from`, `logpush`, `routes` (array of `{id, pattern, script}`), `tags`, `tail_consumers`, `placement`, `observability`.\n\n### 1.3 Download a Worker Script\n\n`GET /accounts/{account_id}/workers/scripts/{script_name}`\n\nReturns **raw script content** (not JSON-wrapped). The response body is the JavaScript source code directly.\n\n### 1.4 Delete a Worker Script\n\n`DELETE /accounts/{account_id}/workers/scripts/{script_name}`\n\nOptional query: `force=true` bypasses deletion blocks from service bindings or Durable Objects.\n\nReturns: `{ \"success\": true, \"result\": null }`\n\n### 1.5 Script Settings\n\n**Get:** `GET /accounts/{account_id}/workers/scripts/{script_name}/script-settings`\n**Update:** `PATCH /accounts/{account_id}/workers/scripts/{script_name}/script-settings`\n\nReturns/accepts: `logpush`, `tags`, `observability`, `tail_consumers`. Note: bindings are NOT in this endpoint -- they are part of the upload metadata."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:29.158638-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:29.158638-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "+s+DDMaNR2eZZo5ARQrMOA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 2. Workers Routes (Zone-level)\n\nRoutes bind a Worker to a URL pattern on a **custom domain** (zone). This is an alternative to workers.dev when you want `https://yourdomain.com/webhooks/*` style URLs."
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:33.749808-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:33.749808-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "R21tkBUAREWzwfrMq0lNgw=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'Create Route'. 'POST'. '/zones/{zone_id}/workers/routes'. '{pattern, script}' }.\r  { 'List Routes'. 'GET'. '/zones/{zone_id}/workers/routes'. '' }.\r  { 'Delete Route'. 'DELETE'. '/zones/{zone_id}/workers/routes/{route_id}'. '' }\r} ].\rview column: 'Operation' text: [ :row | row at: 1 ] weight: 0.25.\rview column: 'Method' text: [ :row | row at: 2 ] weight: 0.1.\rview column: 'Endpoint' text: [ :row | row at: 3 ] weight: 0.45.\rview column: 'Body' text: [ :row | row at: 4 ] weight: 0.2.\rview asElement",
+				"elementHeight" : 130,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:40.028301-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:40.028301-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "A+yUu45FQIiLgLhYY+fOmg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Create Route request body\n```\n{ \"pattern\": \"example.com/webhooks/*\", \"script\": \"my-webhook-worker\" }\n```\n\nResponse includes the route `id`, `pattern`, and `script` name. The `id` is needed for deletion.\n\n**Pattern syntax:** `example.com/*` matches all paths. `example.com/hooks/*` matches a subpath. Wildcards only at the end."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:47.706747-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:47.706747-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "rOI2MlvSR6OEC3a7rctzog=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 3. Workers.dev Subdomain\n\nEvery Cloudflare account gets a `*.workers.dev` subdomain. Each Worker deployed gets a **public URL automatically** -- no DNS or custom domain needed.\n\n### URL Format\n`https://{script_name}.{account_subdomain}.workers.dev`\n\nExample: `https://my-webhook.dweinstein.workers.dev`\n\n### Key behavior\n- All Workers are assigned a workers.dev route **by default** when created\n- No extra API call needed for a newly uploaded script to be reachable\n- Can be disabled per-script via the subdomain API\n- If disabled in dashboard but not in wrangler config, re-deploy re-enables it"
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:52.547834-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:52.547834-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "FqrjaNuJQRGCPOR4e1+JgQ=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'Get account subdomain'. 'GET'. '/accounts/{account_id}/workers/subdomain' }.\r  { 'Enable/disable per script'. 'POST'. '/accounts/{account_id}/workers/scripts/{script_name}/subdomain' }.\r  { 'Check per-script status'. 'GET'. '/accounts/{account_id}/workers/scripts/{script_name}/subdomain' }\r} ].\rview column: 'Operation' text: [ :row | row at: 1 ] weight: 0.3.\rview column: 'Method' text: [ :row | row at: 2 ] weight: 0.1.\rview column: 'Endpoint' text: [ :row | row at: 3 ] weight: 0.6.\rview asElement",
+				"elementHeight" : 130,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:56.522002-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:09:56.522002-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "6BsChlRzQq2OOTtzXVB6PQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Get account subdomain\nResponse: `{ \"success\": true, \"result\": { \"subdomain\": \"myaccount\" } }`\n\n### Enable/disable workers.dev for a specific script\nRequest body: `{ \"enabled\": true, \"previews_enabled\": false }`\nResponse: `{ \"success\": true, \"result\": { \"enabled\": true, \"previews_enabled\": false } }`"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:01.099531-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:01.099531-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "zlj3zMwFRA+tSqOqWQG2Cg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 4. Workers KV (Key-Value Storage)\n\nSimple key-value store, eventually consistent, good for webhook event logs. Keys persist indefinitely unless given an expiration."
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:06.414572-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:06.414572-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "0fSDQjMKThKEzBj27ztXPA=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'Create namespace'. 'POST'. '/accounts/{account_id}/storage/kv/namespaces' }.\r  { 'List namespaces'. 'GET'. '/accounts/{account_id}/storage/kv/namespaces' }.\r  { 'Write key-value'. 'PUT'. '/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}' }.\r  { 'Read value'. 'GET'. '/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}' }.\r  { 'List keys'. 'GET'. '/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys' }\r} ].\rview column: 'Operation' text: [ :row | row at: 1 ] weight: 0.25.\rview column: 'Method' text: [ :row | row at: 2 ] weight: 0.08.\rview column: 'Endpoint' text: [ :row | row at: 3 ] weight: 0.67.\rview asElement",
+				"elementHeight" : 180,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:15.036516-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:15.036516-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "qYU4kqxwRz6xxWS4IkZJqQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Create namespace\nRequest: `{ \"title\": \"webhook-events\" }`\nResponse: `{ \"result\": { \"id\": \"0f2ac74b498b48028cb68387c421e279\", \"title\": \"webhook-events\", \"supports_url_encoding\": true } }`\nThe `id` is the `namespace_id` used in bindings and all subsequent KV calls.\n\n### Write key-value\nBody: raw value (string/binary). Query params: `expiration` (unix timestamp) or `expiration_ttl` (seconds, min 60). If both set, `expiration_ttl` wins. Key name max: 512 bytes, use percent-encoding for special characters.\n\n### Read value\nReturns raw value content. Expiration timestamp in `expiration` response header if set.\n\n### List keys\nQuery params: `prefix` (filter by name prefix), `limit`, `cursor` (pagination). Returns array of `{ name, expiration, metadata }` objects plus `result_info` with `cursor` for next page."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:18.943585-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:18.943585-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "aj+1f+HORXy2lnrUpbTdEQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 5. D1 Database (SQLite)\n\nFull SQLite database for structured/relational webhook event storage. Supports parameterized queries and batch execution."
+			},
+			{
+				"__type" : "elementSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:25.043888-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:25.043888-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "JHGkEVEcQh+Hx4qm0gv4mg=="
+				},
+				"code" : "| view |\rview := GtPhlowColumnedListView new.\rview items: [ {\r  { 'Create DB'. 'POST'. '/accounts/{account_id}/d1/database'. '{name, jurisdiction?, primary_location_hint?}' }.\r  { 'Query DB'. 'POST'. '/accounts/{account_id}/d1/database/{database_id}/query'. '{sql, params?} or {batch: [...]}' }\r} ].\rview column: 'Operation' text: [ :row | row at: 1 ] weight: 0.2.\rview column: 'Method' text: [ :row | row at: 2 ] weight: 0.08.\rview column: 'Endpoint' text: [ :row | row at: 3 ] weight: 0.52.\rview column: 'Body' text: [ :row | row at: 4 ] weight: 0.2.\rview asElement",
+				"elementHeight" : 100,
+				"codeHeight" : 50,
+				"codeVisible" : false
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:32.014899-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:32.014899-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "KnMjoRE5Ro+lwr1tbisKAA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Create D1 database\nRequest: `{ \"name\": \"webhook-store\", \"primary_location_hint\": \"enam\" }`\nLocation hints: `wnam`, `enam`, `weur`, `eeur`, `apac`, `oc`. Optional `jurisdiction`: `eu` or `fedramp`.\nResponse includes `uuid` (the `database_id` / binding `id`), `name`, `created_at`, `num_tables`, `file_size`.\n\n### Query D1 database\nSingle: `{ \"sql\": \"SELECT * FROM events WHERE source = ?\", \"params\": [\"github\"] }`\nBatch: `{ \"batch\": [ { \"sql\": \"CREATE TABLE IF NOT EXISTS events (...)\" }, { \"sql\": \"INSERT ...\", \"params\": [...] } ] }`\nResponse: array of `{ success, results: [...rows], meta: { duration, rows_read, rows_written, served_by_region } }`"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:36.82945-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:36.82945-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "woKv6y25QNaGad8Lh1rn2g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 6. Webhook Worker Script Examples\n\nAll scripts use ES Module format (`export default { async fetch(request, env, ctx) { ... } }`). The `env` parameter provides access to bindings. The `ctx` parameter offers `waitUntil()` for background work after response."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:41.226108-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:41.226108-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "3Yli1lX/RNWjkIqKD6o9Mw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### 6.1 Basic Webhook Forwarder\n\nReceives POST, forwards body and content-type to a configured target URL. Target set via `plain_text` binding `WEBHOOK_TARGET`."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:48.50009-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:48.50009-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "3dFbIDGtRl6QGry+YOLTpg=="
+				},
+				"code" : "\"Webhook forwarder Worker script (JavaScript ES Module)\"\n'export default {\n  async fetch(request, env, ctx) {\n    if (request.method !== ''POST'') {\n      return new Response(''Method not allowed'', { status: 405 });\n    }\n\n    const body = await request.text();\n    const contentType = request.headers.get(''content-type'') || ''application/json'';\n    const targetUrl = env.WEBHOOK_TARGET;\n\n    const forwardResponse = await fetch(targetUrl, {\n      method: ''POST'',\n      headers: {\n        ''Content-Type'': contentType,\n        ''X-Forwarded-From'': new URL(request.url).hostname,\n      },\n      body: body,\n    });\n\n    return new Response(JSON.stringify({\n      status: ''forwarded'',\n      target_status: forwardResponse.status,\n    }), {\n      headers: { ''Content-Type'': ''application/json'' },\n    });\n  },\n};'"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:53.454527-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:10:53.454527-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "7uOD8H7OSbymrwfXc83dpg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### 6.2 Webhook Receiver with KV Storage\n\nStores incoming webhook events in KV with 30-day TTL. GET `/events` lists stored events. Requires `kv_namespace` binding named `WEBHOOK_EVENTS`."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:01.834264-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:01.834264-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "V0lsCpcOSMyn8aikIQB12A=="
+				},
+				"code" : "\"Webhook receiver with KV storage (JavaScript ES Module)\"\n'export default {\n  async fetch(request, env, ctx) {\n    const url = new URL(request.url);\n\n    // POST / -- receive and store webhook event\n    if (request.method === ''POST'') {\n      const body = await request.text();\n      const eventId = crypto.randomUUID();\n      const timestamp = new Date().toISOString();\n\n      const event = JSON.stringify({\n        id: eventId,\n        timestamp: timestamp,\n        headers: Object.fromEntries(request.headers),\n        body: body,\n        source: request.headers.get(''x-webhook-source'') || ''unknown'',\n      });\n\n      // Store in KV with 30-day TTL\n      await env.WEBHOOK_EVENTS.put(\n        `event:${timestamp}:${eventId}`,\n        event,\n        { expirationTtl: 60 * 60 * 24 * 30 }\n      );\n\n      return new Response(JSON.stringify({ id: eventId, status: ''stored'' }), {\n        status: 201,\n        headers: { ''Content-Type'': ''application/json'' },\n      });\n    }\n\n    // GET /events -- list stored events\n    if (request.method === ''GET'' && url.pathname === ''/events'') {\n      const list = await env.WEBHOOK_EVENTS.list({ prefix: ''event:'', limit: 50 });\n      const events = [];\n      for (const key of list.keys) {\n        const value = await env.WEBHOOK_EVENTS.get(key.name);\n        if (value) events.push(JSON.parse(value));\n      }\n      return new Response(JSON.stringify(events), {\n        headers: { ''Content-Type'': ''application/json'' },\n      });\n    }\n\n    return new Response(''Not found'', { status: 404 });\n  },\n};'"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:07.218354-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:07.218354-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "O825W2+ySUeiCtrORRWisw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### 6.3 Webhook Receiver with D1 Storage\n\nStores events in a SQLite table. GET `/init` creates the table. GET `/events` queries recent events. Requires `d1` binding named `DB`."
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:14.724249-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:14.724249-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "4qWdet26TtGUWIG9jxwJgg=="
+				},
+				"code" : "\"Webhook receiver with D1 storage (JavaScript ES Module)\"\n'export default {\n  async fetch(request, env, ctx) {\n    const url = new URL(request.url);\n\n    // GET /init -- create table\n    if (url.pathname === ''/init'') {\n      await env.DB.exec(`\n        CREATE TABLE IF NOT EXISTS webhook_events (\n          id TEXT PRIMARY KEY,\n          source TEXT,\n          content_type TEXT,\n          headers TEXT,\n          body TEXT,\n          created_at TEXT DEFAULT (datetime(''now''))\n        )\n      `);\n      return new Response(''Initialized'');\n    }\n\n    // POST / -- store event\n    if (request.method === ''POST'') {\n      const body = await request.text();\n      const eventId = crypto.randomUUID();\n\n      await env.DB.prepare(\n        ''INSERT INTO webhook_events (id, source, content_type, headers, body) VALUES (?, ?, ?, ?, ?)''\n      ).bind(\n        eventId,\n        request.headers.get(''x-webhook-source'') || ''unknown'',\n        request.headers.get(''content-type'') || '''',\n        JSON.stringify(Object.fromEntries(request.headers)),\n        body\n      ).run();\n\n      return new Response(JSON.stringify({ id: eventId }), {\n        status: 201,\n        headers: { ''Content-Type'': ''application/json'' },\n      });\n    }\n\n    // GET /events -- query recent events\n    if (request.method === ''GET'' && url.pathname === ''/events'') {\n      const { results } = await env.DB.prepare(\n        ''SELECT * FROM webhook_events ORDER BY created_at DESC LIMIT 50''\n      ).all();\n      return new Response(JSON.stringify(results), {\n        headers: { ''Content-Type'': ''application/json'' },\n      });\n    }\n\n    return new Response(''Not found'', { status: 404 });\n  },\n};'"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:25.423359-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:25.423359-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "28L3BYG+TBisIMceph5X0g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 7. Complete Deployment Flow via REST API\n\nEnd-to-end steps to deploy a webhook Worker entirely via HTTP (no Wrangler CLI):\n\n**Step 1 -- Get account subdomain** (one-time discovery)\n`GET /accounts/{account_id}/workers/subdomain` returns `{ \"subdomain\": \"myaccount\" }`\n\n**Step 2 -- (Optional) Create KV namespace**\n`POST /accounts/{account_id}/storage/kv/namespaces` with `{ \"title\": \"webhook-events\" }` returns `namespace_id`\n\n**Step 3 -- Upload Worker script with bindings**\n`PUT /accounts/{account_id}/workers/scripts/my-webhook` as multipart form with metadata JSON (specifying `main_module`, `compatibility_date`, `bindings`) and the JavaScript file\n\n**Step 4 -- Enable workers.dev** (usually already enabled by default)\n`POST /accounts/{account_id}/workers/scripts/my-webhook/subdomain` with `{ \"enabled\": true }`\n\n**Step 5 -- Worker is now live**\n`https://my-webhook.myaccount.workers.dev`\n\n**Step 6 -- (Optional) Add custom domain route**\n`POST /zones/{zone_id}/workers/routes` with `{ \"pattern\": \"api.example.com/webhooks/*\", \"script\": \"my-webhook\" }`"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:39.121786-04:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2026-04-16T22:11:39.121786-04:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BaByiBUFSTmaW+w0rlrW1w=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "## 8. Key Considerations for Pharo/Smalltalk Client\n\n1. **Multipart form upload** -- The script upload endpoint requires `multipart/form-data`. `ZnClient` supports this via `ZnMultiPartFormDataEntity`. Two parts needed: `metadata` (JSON string as `application/json`) and the script file (JavaScript with `application/javascript+module` content type for ES modules).\n\n2. **workers.dev gives instant URLs** -- No DNS configuration needed. Upload a script and it is immediately accessible at `https://{name}.{subdomain}.workers.dev`. This is the simplest path for webhook hosting.\n\n3. **KV vs D1 for storage** -- KV is simpler (key-value, eventually consistent, good for event logs with timestamp-prefixed keys). D1 is a full SQLite database (good for structured queries, filtering, relational data). For webhook event capture, KV with TTL may be sufficient.\n\n4. **No Wrangler needed** -- Every operation (create script, bind KV, set routes, enable subdomain) is available via REST API. The metadata JSON in the multipart upload fully replaces `wrangler.toml`.\n\n5. **Script names are URL-safe identifiers** -- They appear in the workers.dev URL and route configuration. Use lowercase alphanumeric with hyphens.\n\n6. **Response envelope** -- All Cloudflare API responses follow `{ success, errors, messages, result }`. Always check `success` first, then inspect `errors` array for details. Error objects include `code`, `message`, and `documentation_url`.\n\n7. **Request body can only be read once** -- In the Worker script, `request.text()` / `request.json()` consumes the body. Use `request.clone()` if you need to read it multiple times (e.g., for logging and forwarding)."
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-04-16T22:08:22.064952-04:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2026-04-16T22:08:22.064952-04:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Cloudflare Workers REST API Reference"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "37e8e7b6-142c-44e1-ad26-947aac71ddfe"
+	}
+}
