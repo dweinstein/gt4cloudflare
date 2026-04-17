@@ -244,18 +244,22 @@ Gt4CloudflareWorkersClient >> kvDelete: aKey namespace: aNamespaceId [
 
 { #category : 'api - kv' }
 Gt4CloudflareWorkersClient >> kvGet: aKey namespace: aNamespaceId [
-	"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name} — read a value."
+	"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name} — read a value.
+	KV returns raw bytes; we decode to UTF-8 string."
 	| aClient url response |
 	url := self accountUrl / 'storage' / 'kv' / 'namespaces' / aNamespaceId / 'values' / aKey.
 	aClient := ZnClient new.
 	aClient timeout: 120.
 	aClient setBearerAuthentication: apiKey.
 	aClient url: url.
-	response := aClient get.
+	aClient get.
 	history add: (aClient request -> aClient response).
 	aClient isSuccess ifFalse: [
 		Error signal: 'KV read failed: ' , aClient response statusLine printString ].
-	^ response
+	response := aClient response entity.
+	^ response bytes
+		ifNil: [ response contents ]
+		ifNotNil: [ :b | b utf8Decoded ]
 ]
 
 { #category : 'api - kv' }
@@ -361,14 +365,14 @@ Gt4CloudflareWorkersClient >> putMultipart: aUrl metadata: aMetadataDict script:
 	entity := ZnMultiPartFormDataEntity new.
 	metaPart := ZnMimePart
 		fieldName: 'metadata'
-		value: (NeoJSONWriter toString: aMetadataDict).
-	metaPart contentType: (ZnMimeType applicationJson).
+		entity: (ZnEntity json: (NeoJSONWriter toString: aMetadataDict)).
 	entity addPart: metaPart.
 	scriptPart := ZnMimePart
 		fieldName: 'worker.js'
-		value: aJsString.
-	scriptPart contentType: (ZnMimeType textJavascript).
-	scriptPart fileName: 'worker.js'.
+		fileName: 'worker.js'
+		entity: (ZnEntity
+			with: aJsString
+			type: 'application/javascript+module' asZnMimeType).
 	entity addPart: scriptPart.
 	aClient entity: entity.
 	aClient put.
